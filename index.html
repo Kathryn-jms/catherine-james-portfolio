@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="author" content="Catherine James" />
+    <meta name="description" content="Catherine James — Software Developer. Building reliable software solutions and digital products.">
+
+    <!-- grid css -->
+    <link rel="stylesheet" href="css/plugins/bootstrap-grid.css">
+    <!-- font awesome css -->
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+    <!-- swiper css -->
+    <link rel="stylesheet" href="css/plugins/swiper.min.css">
+    <!-- okai css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Comfortaa font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- page title -->
+    <title>Catherine James | Software Developer</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <style>
+        body,
+        .mil-logo,
+        .mil-btn,
+        .mil-main-menu,
+        .mil-suptitle,
+        h1, h2, h3, h4, h5, h6,
+        .mil-text,
+        .mil-fs14,
+        .mil-fs16,
+        .mil-fs20,
+        .mil-fs26,
+        .mil-fs42,
+        .mil-fs68 {
+            font-family: "Comfortaa", sans-serif !important;
+        }
+
+        body {
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        .mil-logo { font-size: 28px !important; }
+        .mil-suptitle { font-size: 14px !important; letter-spacing: 2px; }
+        .mil-fs14 { font-size: 16px !important; }
+        .mil-fs16 { font-size: 18px !important; }
+        .mil-fs18 { font-size: 20px !important; }
+        .mil-fs20 { font-size: 22px !important; }
+        .mil-fs26 { font-size: 30px !important; }
+        .mil-fs42 { font-size: 48px !important; }
+        .mil-fs68 { font-size: 76px !important; }
+        .mil-btn { font-size: 15px !important; }
+        .mil-main-menu a { font-size: 28px !important; }
+        .cj-project-meta h3 { font-size: 30px !important; }
+        .cj-skill-card h3 { font-size: 22px !important; }
+        .cj-tech-tags span { font-size: 14px !important; }
+
+        @media (max-width: 768px) {
+            .mil-fs68 { font-size: 48px !important; }
+            .mil-fs42 { font-size: 36px !important; }
+            .mil-fs26 { font-size: 24px !important; }
+        }
+
+        /* Personal hero — avoids Okai's absolute orange banner panel */
+        .cj-hero {
+            min-height: 100vh;
+            padding: 140px 0 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .cj-hero-copy {
+            position: relative;
+            z-index: 2;
+            max-width: 560px;
+        }
+
+        .cj-hero-copy .mil-text {
+            color: #B8BBC2;
+            line-height: 1.7;
+        }
+
+        .cj-hero-photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .cj-profile {
+            width: min(100%, 380px);
+            aspect-ratio: 1;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 6px solid #F35A38;
+            box-shadow: 0 20px 60px rgba(243, 90, 56, 0.25);
+            background: #14151A;
+        }
+
+        .cj-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            display: block;
+        }
+
+        .cj-btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .cj-skill-card {
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            height: 100%;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .cj-skill-card:hover {
+            border-color: rgba(243, 90, 56, 0.45);
+            transform: translateY(-6px);
+        }
+
+        .cj-skill-card i {
+            font-size: 36px;
+            margin-bottom: 20px;
+            display: block;
+            color: #F35A38;
+        }
+
+        .cj-project-meta {
+            position: relative;
+            z-index: 2;
+            margin-top: 28px;
+            padding-top: 4px;
+        }
+
+        .cj-project-meta h3 {
+            color: #FFFFFF;
+        }
+
+        /* Keep scaled images inside the frame so titles stay visible */
+        #projects .mil-project-card {
+            overflow: visible;
+        }
+
+        #projects .mil-project-card .mil-cover-frame {
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        #projects .mil-project-card .mil-cover-frame .mil-hover-frame,
+        #projects .mil-project-card .mil-cover-frame .mil-hover-overlay {
+            overflow: hidden;
+        }
+
+        .cj-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .cj-tech-tags span {
+            font-size: 12px;
+            padding: 6px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            color: #B8BBC2;
+        }
+
+        .cj-exp-card {
+            background: #14151A;
+            border-left: 4px solid #F35A38;
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .cj-exp-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .cj-exp-card ul {
+            margin: 20px 0 0;
+            padding-left: 22px;
+        }
+
+        .cj-exp-card li {
+            color: #B8BBC2;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .cj-exp-card li:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 991px) {
+            .cj-hero {
+                padding-top: 120px;
+                text-align: center;
+            }
+
+            .cj-hero-copy {
+                max-width: none;
+                margin-bottom: 40px;
+            }
+
+            .cj-btn-row {
+                justify-content: center;
+            }
+
+            .cj-profile {
+                width: min(100%, 280px);
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- wrapper -->
+    <div id="smooth-wrapper" class="mil-page-wrapper">
+
+        <!-- cursor -->
+        <div class="mil-cursor-follower"></div>
+        <!-- cursor end -->
+
+        <!-- scroll progress -->
+        <div class="mil-progress-track">
+            <div class="mil-progress"></div>
+        </div>
+        <!-- scroll progress end -->
+
+        <!-- top panel -->
+        <div class="mil-top-panel">
+            <div class="container">
+                <div class="row mil-aic">
+                    <div class="col-6">
+                        <a href="index.html" class="mil-logo mil-c-gone">Catherine.</a>
+                    </div>
+                    <div class="col-6 mil-jce mil-aic">
+                        <div class="mil-phone mil-group-text mil-fs14"><span class="mil-soft">Phone:</span><span class="mil-light">+255 745 409 727</span></div>
+                        <div class="mil-buttons-frame">
+                            <div class="mil-menu-btn mil-c-gone">
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- top panel end -->
+
+        <!-- menu -->
+        <div class="mil-menu-window">
+            <div class="container">
+                <ul class="mil-main-menu mil-c-gone">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <ul class="mil-social mil-center">
+                    <li><a href="https://github.com/Kathryn-jms" target="_blank" rel="noopener noreferrer" class="mil-c-gone"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/cartherine-james-47b358396/" target="_blank" rel="noopener noreferrer" class="mil-c-gone"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="mailto:jamescartherine7@gmail.com" class="mil-c-gone"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- menu end -->
+
+        <!-- content -->
+        <div id="smooth-content" class="mil-content">
+
+            <!-- hero -->
+            <div id="home" class="cj-hero">
+                <div class="container">
+                    <div class="row mil-aic">
+                        <div class="col-12 col-lg-6">
+                            <div class="cj-hero-copy">
+                                <span class="mil-suptitle mil-accent mil-mb30">Hello, I'm</span>
+                                <h1 class="mil-fs68 mil-mb30">Catherine James</h1>
+                                <p class="mil-text mil-fs26 mil-light mil-mb30">Backend Developer</p>
+                                <p class="mil-text mil-fs16 mil-mb60">Computer Science graduate building reliable APIs, backend systems, and digital products that solve real-world problems.</p>
+                                <div class="cj-btn-row">
+                                    <a href="#projects" class="mil-btn mil-c-gone">View Projects</a>
+                                    <a href="#contact" class="mil-btn mil-btn-border mil-c-gone">Contact Me</a>
+                                    <a href="cv.pdf" class="mil-btn mil-btn-soft mil-c-gone" download="Catherine_James_CV_Sept_2026.pdf"><i class="fas fa-download"></i> Download CV</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="cj-hero-photo">
+                                <div class="cj-profile">
+                                    <img src="img/personal/profile.png" alt="Catherine James">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- hero end -->
+
+            <!-- about -->
+            <div id="about" class="mil-p-120-120">
+                <div class="container">
+                    <div class="row mil-jcb">
+                        <div class="col-lg-5">
+                            <span class="mil-suptitle mil-accent mil-mb30 mil-up">Get to know me</span>
+                            <h2 class="mil-fs42 mil-mb60 mil-up">About Me</h2>
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="mil-text mil-fs20 mil-light mil-mb30 mil-up">Computer Science graduate with a strong foundation in software development, information systems, databases, and technology solutions.</p>
+                            <p class="mil-text mil-fs16 mil-mb30 mil-up">Experienced in developing software applications, APIs, and backend systems, with practical knowledge of programming, database management, system design, and problem-solving. Currently working as a Backend Developer at Infinity Pay, with academic training from the Institute of Accountancy Arusha (IAA).</p>
+                            <p class="mil-text mil-fs16 mil-up">Passionate about using technology to solve real-world problems, learning emerging technologies, and contributing to innovative and impactful projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- about end -->
+
+            <!-- skills -->
+            <div id="skills" class="mil-soft-section mil-p-120-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 mil-mb60">
+                            <span class="mil-suptitle mil-accent mil-mb30 mil-up">What I work with</span>
+                            <h2 class="mil-fs42 mil-up">Technical Skills</h2>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mil-mb30">
+                            <div class="cj-skill-card mil-up">
+                                <i class="fab fa-python"></i>
+                                <h3 class="mil-fs20 mil-mb15">Programming</h3>
+                                <p class="mil-text mil-fs16">Python, JavaScript, Dart</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mil-mb30">
+                            <div class="cj-skill-card mil-up">
+                                <i class="fas fa-server"></i>
+                                <h3 class="mil-fs20 mil-mb15">Backend</h3>
+                                <p class="mil-text mil-fs16">Django, REST APIs, Node.js</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mil-mb30">
+                            <div class="cj-skill-card mil-up">
+                                <i class="fas fa-laptop"></i>
+                                <h3 class="mil-fs20 mil-mb15">IT Support</h3>
+                                <p class="mil-text mil-fs16">Software Install, Windows, Troubleshooting</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3 mil-mb30">
+                            <div class="cj-skill-card mil-up">
+                                <i class="fas fa-database"></i>
+                                <h3 class="mil-fs20 mil-mb15">Databases & Tools</h3>
+                                <p class="mil-text mil-fs16">PostgreSQL, MySQL, Git, Linux</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- skills end -->
+
+            <!-- projects -->
+            <div id="projects" class="mil-portfolio mil-p-120-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 mil-mb60">
+                            <span class="mil-suptitle mil-accent mil-mb30 mil-up">What I have built</span>
+                            <h2 class="mil-fs42 mil-up">Featured Projects</h2>
+                        </div>
+
+                        <div class="col-md-6 mil-mb60">
+                            <div class="mil-project-card mil-up">
+                                <a href="#projects" class="mil-c-view">
+                                    <div class="mil-cover-frame mil-h">
+                                        <div class="mil-hover-frame">
+                                            <img src="img/projects/markethub.png" alt="MarketHub" class="mil-scale-img" data-value-1="1" data-value-2="1.25">
+                                        </div>
+                                        <div class="mil-hover-overlay"></div>
+                                    </div>
+                                </a>
+                                <div class="cj-project-meta">
+                                    <h3 class="mil-fs26 mil-mb15">MarketHub</h3>
+                                    <p class="mil-text mil-fs16">Smart student marketplace that enables students to showcase, buy, and sell products across campus.</p>
+                                    <div class="cj-tech-tags">
+                                        <span>React</span>
+                                        <span>Django REST</span>
+                                        <span>PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mil-mb60">
+                            <div class="mil-project-card mil-up">
+                                <a href="#projects" class="mil-c-view">
+                                    <div class="mil-cover-frame mil-h">
+                                        <div class="mil-hover-frame">
+                                            <img src="img/projects/todo-app.png" alt="To Do Desktop App" class="mil-scale-img" data-value-1="1" data-value-2="1.25">
+                                        </div>
+                                        <div class="mil-hover-overlay"></div>
+                                    </div>
+                                </a>
+                                <div class="cj-project-meta">
+                                    <h3 class="mil-fs26 mil-mb15">To Do Desktop App</h3>
+                                    <p class="mil-text mil-fs16">A desktop task management application for organizing daily to-dos with a clean interface built for productivity.</p>
+                                    <div class="cj-tech-tags">
+                                        <span>Electron</span>
+                                        <span>JavaScript</span>
+                                        <span>HTML</span>
+                                        <span>CSS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- projects end -->
+
+            <!-- experience -->
+            <div id="experience" class="mil-soft-section mil-p-120-120">
+                <div class="container">
+                    <div class="row mil-jcc">
+                        <div class="col-lg-10">
+                            <span class="mil-suptitle mil-accent mil-mb30 mil-up">My professional journey</span>
+                            <h2 class="mil-fs42 mil-mb60 mil-up">Experience</h2>
+
+                            <div class="cj-exp-card mil-up">
+                                <h3 class="mil-fs26 mil-mb15">Backend Developer</h3>
+                                <p class="mil-text mil-accent mil-fs16 mil-mb15">Infinity Pay · 2025 – Present</p>
+                                <ul>
+                                    <li>Write backend code that handles requests, applies business rules, and processes data — including payment validation, fee calculation, and user authentication.</li>
+                                    <li>Build REST and FastAPI interfaces that let frontend, mobile apps, and other services communicate with the backend, including endpoints, request/response formats, and auth.</li>
+                                    <li>Ensure data is stored, retrieved, and updated correctly and efficiently, handling relationships, transactions, and data integrity.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cj-exp-card mil-up">
+                                <h3 class="mil-fs26 mil-mb15">Technical Support Assistant</h3>
+                                <p class="mil-text mil-accent mil-fs16 mil-mb15">Institute of Accountancy Arusha (IAA) · 2024 – 2025</p>
+                                <ul>
+                                    <li>Troubleshot and resolved hardware and software issues on laboratory computers.</li>
+                                    <li>Installed, updated, and maintained software applications and operating systems.</li>
+                                    <li>Provided technical support to students and staff and assisted with computer laboratory setup and maintenance.</li>
+                                </ul>
+                            </div>
+
+                            <div class="cj-exp-card mil-up">
+                                <h3 class="mil-fs26 mil-mb15">Education</h3>
+                                <p class="mil-text mil-accent mil-fs16 mil-mb15">BSc in Computer Science · Institute of Accountancy Arusha (IAA)</p>
+                                <ul>
+                                    <li>2023 – 2026 · Arusha, Tanzania</li>
+                                    <li>Strong foundation in software development, information systems, databases, and technology solutions.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- experience end -->
+
+            <!-- contact -->
+            <div id="contact" class="mil-accent-section mil-up mil-p-180-120">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <span class="mil-suptitle mil-mb30 mil-up">Let's connect</span>
+                            <h2 class="mil-fs68 mil-light mil-mb30 mil-up">Contact me</h2>
+                            <p class="mil-text mil-fs26 mil-light mil-mb60 mil-up">Interested in working together or discussing technology? Feel free to get in touch.</p>
+                            <div class="cj-btn-row mil-up">
+                                <a href="mailto:jamescartherine7@gmail.com" class="mil-btn mil-btn-soft mil-c-gone">Send Me an Email</a>
+                                <a href="tel:+255745409727" class="mil-btn mil-btn-border mil-c-gone">+255 745 409 727</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- contact end -->
+
+            <!-- footer -->
+            <footer>
+                <div class="container mil-p-120-0">
+                    <div class="row mil-jcb">
+                        <div class="col-8 col-lg-4 mil-mb90">
+                            <a href="index.html" class="mil-logo mil-mb60 mil-up mil-c-gone">Catherine.</a>
+                            <p class="mil-text mil-fs16 mil-mb60 mil-up">Backend Developer building APIs, backend systems, and digital products that solve real-world problems.</p>
+                            <ul class="mil-social mil-up">
+                                <li><a href="https://github.com/Kathryn-jms" target="_blank" rel="noopener noreferrer" class="mil-c-gone"><i class="fab fa-github"></i></a></li>
+                                <li><a href="https://www.linkedin.com/in/cartherine-james-47b358396/" target="_blank" rel="noopener noreferrer" class="mil-c-gone"><i class="fab fa-linkedin-in"></i></a></li>
+                                <li><a href="mailto:jamescartherine7@gmail.com" class="mil-c-gone"><i class="fas fa-envelope"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-2 mil-mb90">
+                            <h5 class="mil-fs16 mil-mb60 mil-up">Menu</h5>
+                            <ul class="mil-footer-menu">
+                                <li class="mil-up"><a href="#about" class="mil-c-gone">About</a></li>
+                                <li class="mil-up"><a href="#skills" class="mil-c-gone">Skills</a></li>
+                                <li class="mil-up"><a href="#projects" class="mil-c-gone">Projects</a></li>
+                                <li class="mil-up"><a href="#contact" class="mil-c-gone">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 mil-mb90">
+                            <h5 class="mil-fs16 mil-mb60 mil-up">Contact</h5>
+                            <ul class="mil-footer-list">
+                                <li class="mil-text mil-up">Phone: <a href="tel:+255745409727" class="mil-text-link">+255 745 409 727</a></li>
+                                <li class="mil-text mil-up">Email: <a href="mailto:jamescartherine7@gmail.com" class="mil-text-link">jamescartherine7@gmail.com</a></li>
+                                <li class="mil-text mil-up"><a href="cv.pdf" class="mil-text-link" download="Catherine_James_CV_Sept_2026.pdf">Download CV</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mil-footer-bottom mil-up">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6 mil-mb30">
+                                <p class="mil-fs14 mil-soft">© 2026 Catherine James. All Rights Reserved.</p>
+                            </div>
+                            <div class="col-lg-6 mil-jce mil-992-jcs mil-mb30">
+                                <a href="#home" class="mil-group-text mil-accent mil-c-gone" id="mil-btt"><i class="fas fa-chevron-up"></i> <span>Back to top</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer end -->
+
+        </div>
+        <!-- content -->
+
+    </div>
+    <!-- wrapper end -->
+
+    <!-- gsap js -->
+    <script src="js/plugins/gsap.min.js"></script>
+    <!-- scroll smoother -->
+    <script src="js/plugins/ScrollSmoother.min.js"></script>
+    <!-- scroll trigger js -->
+    <script src="js/plugins/ScrollTrigger.min.js"></script>
+    <!-- scroll to js -->
+    <script src="js/plugins/ScrollTo.min.js"></script>
+    <!-- swiper js -->
+    <script src="js/plugins/swiper.min.js"></script>
+    <!-- okai js -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
